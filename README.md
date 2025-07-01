@@ -48,6 +48,77 @@
 
 ### 1. Sao chép (Clone) Repository
 
+2. Thiết Lập Môi Trường Ảo Python (Khuyến khích)
+# Lệnh tạo môi trường ảo
+python -m venv venv
+
+# Trên Windows
+venv\Scripts\activate
+
+# Trên macOS/Linux
+source venv/bin/activate
+
+3. Cài Đặt Các Gói Phụ Thuộc
+Tạo một tệp requirements.txt với nội dung sau:
+
+cryptography
+google-api-python-client
+google-auth-httplib2
+google-auth-oauthlib
+
+Sau đó, cài đặt các gói:
+
+pip install -r requirements.txt
+
+4. Cấu Hình Google Drive API
+Truy cập Google Cloud Console.
+
+Tạo một dự án mới.
+
+Kích hoạt "Google Drive API" cho dự án này.
+
+Đi đến "Credentials" (Thông tin xác thực), nhấp vào "Create Credentials" và chọn "OAuth client ID".
+
+Cấu hình màn hình chấp thuận (chọn "Desktop app" và đặt tên).
+
+Chọn "Desktop application" (Ứng dụng máy tính) làm loại ứng dụng.
+
+Nhấp "Create". Một cửa sổ sẽ hiện lên. Nhấp vào "DOWNLOAD JSON" để tải xuống thông tin xác thực của bạn.
+
+Đổi tên tệp đã tải xuống thành credentials.json và đặt nó vào thư mục gốc của dự án.
+
+Hướng Dẫn Sử Dụng
+Bước 1: Xác Thực với Google Drive
+Trước khi chạy các ứng dụng chính, bạn phải tạo một tệp token.json. Chạy tập lệnh xác thực từ terminal của bạn:
+
+python authenticate_google_drive.py
+
+Thao tác này sẽ mở một cửa sổ trình duyệt yêu cầu bạn đăng nhập vào tài khoản Google và cấp quyền cho ứng dụng. Sau khi bạn chấp thuận, một tệp token.json sẽ được tạo trong thư mục dự án. Bạn chỉ cần làm điều này một lần (hoặc khi token hết hạn/bị thu hồi).
+
+Bước 2: Khởi Động Người Nhận
+Chạy ứng dụng người nhận. Ứng dụng sẽ bắt đầu lắng nghe các kết nối đến.
+
+python receiver.py
+
+Bạn có thể chỉ định địa chỉ IP của máy chủ trong GUI. Mặc định là localhost.
+
+Người nhận phải được chạy trước khi người gửi cố gắng kết nối.
+
+Bước 3: Khởi Động Người Gửi và Gửi Tệp
+Chạy ứng dụng người gửi trong một terminal riêng biệt.
+
+python sender.py
+
+Nhập địa chỉ IP HOST của người nhận (nếu không phải là localhost).
+
+Để gửi qua Google Drive: Đánh dấu vào ô "Sử dụng Cloud (Google Drive)".
+
+Để gửi trực tiếp: Để trống ô này.
+
+Nhấp vào nút "Gửi Hợp Đồng" và chọn tệp bạn muốn chuyển (ví dụ: contract.txt).
+
+Cửa sổ trạng thái sẽ hiển thị tiến trình của việc truyền tệp.
+
 ```bash
 git clone <your-repository-url>
 cd Secure-Contract-Transfer
