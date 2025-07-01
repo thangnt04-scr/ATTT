@@ -58,7 +58,7 @@ venv\Scripts\activate
 # Trên macOS/Linux
 source venv/bin/activate
 
-3. Cài Đặt Các Gói Phụ Thuộc
+###3. Cài Đặt Các Gói Phụ Thuộc
 Tạo một tệp requirements.txt với nội dung sau:
 
 cryptography
@@ -70,7 +70,7 @@ Sau đó, cài đặt các gói:
 
 pip install -r requirements.txt
 
-4. Cấu Hình Google Drive API
+###4. Cấu Hình Google Drive API
 Truy cập Google Cloud Console.
 
 Tạo một dự án mới.
